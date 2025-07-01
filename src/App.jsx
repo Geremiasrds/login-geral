@@ -1,43 +1,63 @@
-import React, { useState } from 'react'
-import { HashRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
-function Login({ aoLogar }) {
+import TelaInicial from "./componentes/TelaInicial";
+import Geral from "./componentes/orcamento/componentes/GeralOrcamento";
+import GlobalStyles from "./componentes/orcamento/GlobalStyles";
+import GeralRecibo from "./componentes/recbibo/GeralRecibo";
+import ListaDeTarefas from "./componentes/lista-de-atividades/componentes/ListaDeAtividades";
+import { Login } from "./TelaDeLogin";
+
+const MotionPage = ({ children }) => (
+  <motion.div
+    className="page"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -20 }}
+    transition={{ duration: 0.4 }}
+  >
+    {children}
+  </motion.div>
+);
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
   return (
-    <div style={{ color: 'white', textAlign: 'center', marginTop: '100px' }}>
-      <h1>Login Teste</h1>
-      <button onClick={aoLogar}>Login</button>
-    </div>
-  )
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<MotionPage><TelaInicial /></MotionPage>} />
+        <Route path="/orcamento" element={<MotionPage><Geral /></MotionPage>} />
+        <Route path="/recibo" element={<MotionPage><GeralRecibo /></MotionPage>} />
+        <Route path="/tarefas" element={<MotionPage><ListaDeTarefas /></MotionPage>} />
+      </Routes>
+    </AnimatePresence>
+  );
 }
 
-function Home() {
-  return <h2 style={{ color: 'white' }}>Home após login</h2>
-}
+function AppContent() {
+  const [logado, setLogado] = useState(false);
+  const navigate = useNavigate();
 
-export default function TestApp() {
-  const [logado, setLogado] = useState(false)
-  const navigate = useNavigate()
+  useEffect(() => {
+    if (logado) {
+      navigate("/");
+    }
+  }, [logado, navigate]);
 
   if (!logado) {
-    return <Login aoLogar={() => { setLogado(true); navigate('/') }} />
+    return <Login aoLogar={() => setLogado(true)} />;
   }
 
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes>
-  )
+  return <AnimatedRoutes />;
 }
 
-// E no main.jsx faça só:
-
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { HashRouter } from 'react-router-dom'
-import TestApp from './TestApp'
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <HashRouter>
-    <TestApp />
-  </HashRouter>
-)
+export default function App() {
+  return (
+    <>
+      <GlobalStyles />
+      <AppContent />
+    </>
+  );
+}
