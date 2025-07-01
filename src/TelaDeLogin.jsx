@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import './Login.css'
+import { useState } from "react"
 
-export const Login = ({ aoLogar }) => {
+const LoginGeral = ({ aoLogar }) => {  // <- RECEBENDO A PROP AQUI
+
   const [nome, setNome] = useState('')
   const [senha, setSenha] = useState('')
   const [mensagem, setMensagem] = useState('')
@@ -18,7 +18,7 @@ export const Login = ({ aoLogar }) => {
 
   const entrar = () => {
     if (nome && senha) {
-      aoLogar()
+      aoLogar() // <- AGORA FUNCIONA!
     } else {
       mostrarMensagem('Preencha nome e senha', 'error')
     }
@@ -33,39 +33,40 @@ export const Login = ({ aoLogar }) => {
   }
 
   return (
-  <div className="login-box">
-  <h1 className="login-title">Login</h1>
+    <div className="login-box">
+      <h1 className="login-title">Login</h1>
 
-  <p className="login-descricao">
-    Qualquer nome ou senha funciona — é só um teste!
-  </p>
+      <p className="login-descricao">
+        Qualquer nome ou senha funciona — é só um teste!
+      </p>
 
-  <div className="login-form">
-    <input
-      type="text"
-      placeholder="Digite seu nome"
-      value={nome}
-      onChange={(e) => setNome(e.target.value)}
-      className="login-input"
-    />
-    <input
-      type="password"
-      placeholder="Digite sua senha"
-      value={senha}
-      onChange={(e) => setSenha(e.target.value)}
-      className="login-input"
-    />
+      <div className="login-form">
+        <input
+          type="text"
+          placeholder="Digite seu nome"
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
+          className="login-input"
+        />
+        <input
+          type="password"
+          placeholder="Digite sua senha"
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
+          className="login-input"
+        />
 
-    <button onClick={entrar} className="login-button">Entrar</button>
-    <button onClick={cadastrar} className="login-button secondary">Cadastrar</button>
+        <button onClick={entrar} className="login-button">Entrar</button>
+        <button onClick={cadastrar} className="login-button secondary">Cadastrar</button>
 
-    {mensagem && (
-      <div className={`mensagem ${tipoMensagem}`}>
-        {mensagem}
+        {mensagem && (
+          <div className={`mensagem ${tipoMensagem}`}>
+            {mensagem}
+          </div>
+        )}
       </div>
-    )}
-  </div>
-</div>
-
+    </div>
   )
 }
+
+export default LoginGeral

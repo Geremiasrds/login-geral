@@ -7,7 +7,7 @@ import Geral from "./componentes/orcamento/componentes/GeralOrcamento";
 import GlobalStyles from "./componentes/orcamento/GlobalStyles";
 import GeralRecibo from "./componentes/recbibo/GeralRecibo";
 import ListaDeTarefas from "./componentes/lista-de-atividades/componentes/ListaDeAtividades";
-import { Login } from "./TelaDeLogin";
+import LoginGeral from "./TelaDeLogin";
 
 const MotionPage = ({ children }) => (
   <motion.div
@@ -47,7 +47,7 @@ function AppContent() {
   }, [logado, navigate]);
 
   if (!logado) {
-    return <Login aoLogar={() => setLogado(true)} />;
+    return <LoginGeral aoLogar={() => setLogado(true)} />;
   }
 
   return <AnimatedRoutes />;
