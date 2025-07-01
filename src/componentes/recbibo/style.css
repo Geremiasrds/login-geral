@@ -1,0 +1,37 @@
+.container-recibo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #fefefe;
+  padding: 2rem;
+  color: #333;
+}
+
+.botao-emoji {
+  background-color: #0077cc;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s;
+}
+
+.botao-emoji:hover {
+  background-color: #005fa3;
+}
+
+.titulo {
+  color: #e63946;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.mensagem {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-bottom: 0.8rem;
+}
