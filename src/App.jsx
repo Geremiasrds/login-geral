@@ -10,7 +10,6 @@ import GeralRecibo from "./componentes/recbibo/GeralRecibo";
 import ListaDeTarefas from "./componentes/lista-de-atividades/componentes/ListaDeAtividades";
 import { Login } from "./TelaDeLogin";
 
-// Componente para animar as páginas
 const MotionPage = ({ children }) => (
   <motion.div
     className="page"
@@ -23,7 +22,6 @@ const MotionPage = ({ children }) => (
   </motion.div>
 );
 
-// Componente com as rotas animadas
 function AnimatedRoutes() {
   const location = useLocation();
 
@@ -39,26 +37,24 @@ function AnimatedRoutes() {
   );
 }
 
-// Componente que gerencia login e redirecionamento
 function AppContent() {
   const [logado, setLogado] = useState(false);
   const navigate = useNavigate();
 
-  // Quando logar, redireciona para rota inicial "/"
   useEffect(() => {
     if (logado) {
       navigate("/");
     }
   }, [logado, navigate]);
 
-  return !logado ? (
-    <Login aoLogar={() => setLogado(true)} />
-  ) : (
-    <AnimatedRoutes />
-  );
+  if (!logado) {
+    return <Login aoLogar={() => setLogado(true)} />;
+  }
+
+  return <AnimatedRoutes />;
 }
 
-function App() {
+export default function App() {
   return (
     <Router>
       <GlobalStyles />
@@ -66,5 +62,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;
