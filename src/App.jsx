@@ -1,5 +1,6 @@
+// App.jsx
 import React from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 import TelaInicial from "./componentes/TelaInicial";
@@ -8,12 +9,11 @@ import GlobalStyles from "./componentes/orcamento/GlobalStyles";
 import GeralRecibo from "./componentes/recbibo/GeralRecibo";
 import ListaDeTarefas from "./componentes/lista-de-atividades/componentes/ListaDeAtividades";
 
+// Componente que aplica animação nas rotas
 function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <>
-    
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route
@@ -74,16 +74,16 @@ function AnimatedRoutes() {
         />
       </Routes>
     </AnimatePresence>
-    </>
   );
 }
 
+// App principal com roteamento
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <GlobalStyles />
       <AnimatedRoutes />
-    </BrowserRouter>
+    </Router>
   );
 }
 
