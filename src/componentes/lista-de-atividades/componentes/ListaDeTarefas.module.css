@@ -1,0 +1,113 @@
+.container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #1e1e2f;
+  border-radius: 10px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #00d4ff;
+}
+
+.inputContainer {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.inputContainer input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+}
+
+.inputContainer button {
+  padding: 10px 15px;
+  background-color: #00d4ff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.lista {
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  background: #2a2a40;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.item span {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.botoes {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.botoes button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.botoes button:first-child {
+  background-color: #32cd32;
+  color: white;
+}
+
+.botoes button:nth-child(2) {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.progressBar {
+  width: 100%;
+  background-color: #444;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #00d4ff;
+}
+
+.tempoEControles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tempoEControles button {
+  margin-left: 8px;
+  padding: 6px 8px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #999;
+  color: #000;
+  cursor: pointer;
+}

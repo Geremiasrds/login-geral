@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-
-import BotaoDeGeraPDF from "../botoes/BotaoDeGerapdf";
+import BotaoDeGeraPDF from "../botoes/BotaoDeGeraPDF";
 import { gerarPdf } from "../pdf/GeradorDePdf";
+import styles from "../Geral.module.css";
 
 const CardDoOrcamento = ({ cliente: clienteProp, servicos: servicosProp, aoVoltar }) => {
   const [cliente, setCliente] = useState(clienteProp || "");
@@ -29,15 +29,10 @@ const CardDoOrcamento = ({ cliente: clienteProp, servicos: servicosProp, aoVolta
 
   return (
     <>
-      <div className="tabela-do-orcamento">
-        <div className="logo">
-          <div className="logo-orcamento">
-          </div>
-        </div>
+      <div className={styles.cardOrcamento}>
+        <h1 className={styles.titulo}>ORÇAMENTO</h1>
 
-        <h1 className="titulo">ORÇAMENTO</h1>
-
-        <table className="tabela">
+        <table className={styles.tabelaDoOrcamento}>
           <thead>
             <tr>
               <th>Serviço</th>
@@ -62,13 +57,11 @@ const CardDoOrcamento = ({ cliente: clienteProp, servicos: servicosProp, aoVolta
             </tr>
           </tfoot>
         </table>
-
-        
       </div>
 
-      <div className="botoes-acoes">
-        <button className="botao-voltar" onClick={aoVoltar}>Voltar</button>
-        <BotaoDeGeraPDF onClick={handleGerarPDF} />
+      <div className={styles.botoesAcoes}>
+        <button className={styles.botaoVoltar} onClick={aoVoltar}>Voltar</button>
+        <BotaoDeGeraPDF className={styles.botaoGerarPDF} onClick={handleGerarPDF} />
       </div>
     </>
   );

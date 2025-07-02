@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import '../recbibo/style.css'
-const GeralRecibo = () => {
+import styles from "../recbibo/componentes/GeralRecibo.module.css";
 
+const GeralRecibo = () => {
   const navigate = useNavigate();
 
   const voltarParaTelaInicial = () => {
@@ -9,8 +9,8 @@ const GeralRecibo = () => {
   };
 
   return (
-    <div className="container-recibo">
-      <button className="botao-emoji" onClick={voltarParaTelaInicial} title="Voltar à tela inicial">
+    <div className={styles.container}>
+      <button className={styles.botao} onClick={voltarParaTelaInicial} title="Voltar à tela inicial">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="26"
@@ -22,11 +22,11 @@ const GeralRecibo = () => {
         </svg>
       </button>
 
-      <h2 className="titulo">🚧 Estamos em manutenção...</h2>
-      <p className="mensagem">
+      <h2 className={styles.titulo}>🚧 Estamos em manutenção...</h2>
+      <p className={styles.mensagem}>
         Estamos fazendo alguns ajustes para tornar sua experiência ainda mais prática, leve e intuitiva.
       </p>
-      <p className="mensagem">
+      <p className={styles.mensagem}>
         Obrigado por sua paciência! Em breve, tudo estará funcionando perfeitamente. 💙
       </p>
     </div>

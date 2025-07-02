@@ -1,0 +1,268 @@
+/* Container geral */
+.simulaOrcamento {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2rem 2.5rem;
+  background-color: #f8f9fb;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+  font-family: 'Inter', 'Roboto', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Card geral do formulário */
+.orcamento {
+  background-color: #fff;
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.3s ease;
+}
+.orcamento:hover {
+  box-shadow: 0 12px 40px rgba(124, 58, 237, 0.15);
+}
+
+.titulo {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.6rem;
+  letter-spacing: 0.03em;
+}
+
+.ajuda {
+  font-size: 14px;
+  color: #5b21b6;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
+.ajuda:hover {
+  color: #7c3aed;
+  transform: translateX(6px);
+}
+
+/* Inputs em geral */
+.inputText {
+  width: 100%;
+  padding: 0.6rem 1rem;        /* reduzido para mais compacto */
+  font-size: 0.95rem;          /* fonte menor e elegante */
+  border-radius: 10px;
+  border: 1.6px solid #d1d5db;
+  background-color: #fafafa;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 1rem;         /* espaçamento mais compacto */
+  box-sizing: border-box;
+}
+
+.inputText:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 6px rgba(124, 58, 237, 0.5);
+  background-color: #fff;
+}
+
+/* Botões padrão */
+.botaoPrincipal, .botao {
+  padding: 0.7rem 1.8rem;      /* padding menor */
+  background: linear-gradient(90deg, #7c3aed, #9333ea);
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;             /* fonte um pouco menor */
+  cursor: pointer;
+  box-shadow: 0 7px 18px rgba(124, 58, 237, 0.35);
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.15s ease;
+  user-select: none;
+  display: inline-block;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 3px rgba(0,0,0,0.12);
+}
+
+.botao:hover, .botaoPrincipal:hover {
+  background: linear-gradient(90deg, #9333ea, #7c3aed);
+  box-shadow: 0 11px 28px rgba(147, 51, 234, 0.55);
+  transform: translateY(-2.5px);
+}
+
+.botao:active, .botaoPrincipal:active {
+  background: #5b21b6;
+  box-shadow: 0 5px 15px rgba(91, 33, 182, 0.7);
+  transform: scale(0.96);
+}
+
+/* Cards de lista de itens */
+.cardLista {
+  background-color: #fff;
+  border-radius: 14px;
+  padding: 1.5rem 1.8rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e0e0e0;
+  font-family: 'Inter', sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+.cardLista:hover {
+  box-shadow: 0 14px 38px rgba(124, 58, 237, 0.11);
+}
+
+.cardLista p {
+  font-size: 12px;
+  margin-bottom: 1.1rem;
+  color: #666;
+  user-select: none;
+}
+
+.listaDeItens {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+  color: #444;
+}
+.listaDeItens:last-child {
+  border-bottom: none;
+}
+
+/* Inputs editáveis no card */
+.inputsEditaveis {
+  display: flex;
+  gap: 10px;
+}
+
+.inputsEditaveis input {
+  border: none;
+  border-bottom: 2px solid #7c3aed;
+  background: transparent;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.95rem;
+  width: 70px;
+  transition: border-color 0.3s ease;
+  font-weight: 600;
+  color: #3c3c3c;
+  text-align: center;
+  border-radius: 6px 6px 0 0;
+  user-select: text;
+}
+
+.inputsEditaveis input[type="text"] {
+  width: 130px;
+  text-align: left;
+  padding-left: 0.8rem;
+}
+
+.inputsEditaveis input:focus {
+  outline: none;
+  border-color: #5b21b6;
+  box-shadow: 0 0 6px rgba(91, 33, 182, 0.45);
+}
+
+/* Card do orçamento */
+.cardOrcamento {
+  background-color: #fafafa;
+  border-radius: 18px;
+  padding: 2.3rem 2.8rem;
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.17);
+  border: 1px solid #d6bcfa;
+  font-family: 'Inter', sans-serif;
+  margin-top: 2.2rem;
+}
+
+/* Tabela orçamento */
+.tabelaDoOrcamento {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.1rem;
+  margin-bottom: 2.3rem;
+}
+
+.tabelaDoOrcamento th, .tabelaDoOrcamento td {
+  border: 1px solid #ddd;
+  padding: 0.85rem 0.7rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.tabelaDoOrcamento th {
+  background-color: #7c3aed;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.botoesAcoes {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.botaoVoltar, .botaoGerarPDF {
+  padding: 0.65rem 1.25rem;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  color: white;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  min-width: 110px;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.botaoVoltar {
+  background-color: #6b7280;
+}
+.botaoVoltar:hover {
+  background-color: #4b5563;
+  box-shadow: 0 10px 25px rgba(75, 85, 99, 0.8);
+}
+
+.botaoGerarPDF {
+  background-color: #22c55e;
+}
+.botaoGerarPDF:hover {
+  background-color: #16a34a;
+  box-shadow: 0 10px 28px rgba(22, 163, 74, 0.9);
+}
+
+/* Responsividade básica */
+@media (max-width: 600px) {
+  .simulaOrcamento {
+    margin: 1.5rem 1rem;
+    padding: 1.5rem 1.25rem;
+  }
+  .orcamento {
+    padding: 1rem 1.25rem;
+  }
+  .botaoPrincipal, .botao {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.15rem;
+  }
+  .listaDeItens {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .inputsEditaveis input {
+    width: 100% !important;
+  }
+  .botoesAcoes {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

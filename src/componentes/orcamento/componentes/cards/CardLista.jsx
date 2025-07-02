@@ -1,6 +1,7 @@
 import React from "react";
-import InputsEditaveis from "../inputs/inputsEditaves"; 
 import BotaodeGeraOrcamento from "../botoes/BotaodeGeraOrcamento";
+import styles from "../Geral.module.css";
+import InputsEditaveis from "../inputs/inputsEditaves";
 
 const CardDaLista = ({ OqueFoiDigitadoNoInput, setItensConfirmados, total, onGerarOrcamento }) => {
   const atualizarItem = (index, campo, valor) => {
@@ -18,33 +19,32 @@ const CardDaLista = ({ OqueFoiDigitadoNoInput, setItensConfirmados, total, onGer
   };
 
   return (
-    <div className="lista">
+    <div className={styles.cardLista}>
       {OqueFoiDigitadoNoInput.length > 0 && (
         <>
-          <p style={{fontSize: '11px'}}>
-            ✏️ Os itens abaixo são editáveis, Clique em cima para editar.
-          </p>
+          <p>✏️ Os itens abaixo são editáveis, Clique em cima para editar.</p>
 
           {OqueFoiDigitadoNoInput.map((item, index) => (
-            <div key={index} className="lista-de-itens">
-              
+            <div key={index} className={styles.listaDeItens}>
               <InputsEditaveis
                 quantidade={item.quantidade}
                 nome={item.nome}
                 valorUnitario={item.valorUnitario}
                 onChange={(campo, valor) => atualizarItem(index, campo, valor)}
+                className={styles.inputsEditaveis}
               />
-              <span>R${(item.quantidade * item.valorUnitario).toFixed(2).replace(".", ",")}</span>
+              <span>
+                R${(item.quantidade * item.valorUnitario).toFixed(2).replace(".", ",")}
+              </span>
             </div>
           ))}
 
-          <div className="total-geral">
+          <div className={styles.totalGeral}>
             <strong>Total: R$ {total.toFixed(2).replace(".", ",")}</strong>
           </div>
 
-         
-          <div className="botao-gerar">
-            <BotaodeGeraOrcamento onClick={onGerarOrcamento} />
+          <div className={styles.botaoGerar}>
+            <BotaodeGeraOrcamento onClick={onGerarOrcamento} className={styles.botaoPrincipal} />
           </div>
         </>
       )}

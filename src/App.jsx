@@ -6,6 +6,8 @@ import LoginGeral from "./TelaDeLogin";
 import ListaDeTarefas from "./componentes/lista-de-atividades/componentes/ListaDeAtividades";
 import GeralRecibo from "./componentes/recbibo/GeralRecibo";
 
+
+
 function App() {
   const [logado, setLogado] = useState(false);
 

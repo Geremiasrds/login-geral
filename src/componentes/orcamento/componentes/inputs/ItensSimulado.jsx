@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+import styles from "../Geral.module.css";
 
 const ItensSimulado = forwardRef(({ itemDigitado, setItemDigitado }, ref) => {
   const handleChange = (e) => {
@@ -9,6 +10,7 @@ const ItensSimulado = forwardRef(({ itemDigitado, setItemDigitado }, ref) => {
     <div>
       <input
         ref={ref}
+        className={styles.inputText}
         type="text"
         placeholder="Ex: 4 Limpezas"
         value={itemDigitado}

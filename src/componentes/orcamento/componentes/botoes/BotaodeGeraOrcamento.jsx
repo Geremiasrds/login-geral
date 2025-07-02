@@ -1,8 +1,8 @@
 import React from "react";
-
+import styles from "../Geral.module.css";
 const BotaodeGeraOrcamento = ({ onClick }) => {
   return (
-    <button onClick={onClick}>
+    <button className={styles.botao} onClick={onClick}>
       Gerar Orçamento
     </button>
   );

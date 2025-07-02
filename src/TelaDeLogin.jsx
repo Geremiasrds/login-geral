@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./LoginGeral.module.css"; // ajuste o caminho conforme sua estrutura
 
 const LoginGeral = ({ aoLogar }) => {
   const [nome, setNome] = useState("");
@@ -32,38 +33,40 @@ const LoginGeral = ({ aoLogar }) => {
   };
 
   return (
-    <div className="login-box">
-      <h1 className="login-title">Login</h1>
+    <div className={styles.loginBox}>
+      <h1 className={styles.loginTitle}>Login</h1>
 
-      <p className="login-descricao">
+      <p className={styles.loginDescricao}>
         Qualquer nome ou senha funciona — é só um teste!
       </p>
 
-      <div className="login-form">
+      <div className={styles.loginForm}>
         <input
           type="text"
           placeholder="Digite seu nome"
           value={nome}
           onChange={(e) => setNome(e.target.value)}
-          className="login-input"
+          className={styles.loginInput}
         />
         <input
           type="password"
           placeholder="Digite sua senha"
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
-          className="login-input"
+          className={styles.loginInput}
         />
 
-        <button onClick={entrar} className="login-button">
+        <button onClick={entrar} className={styles.loginButton}>
           Entrar
         </button>
-        <button onClick={cadastrar} className="login-button secondary">
+        <button onClick={cadastrar} className={`${styles.loginButton} ${styles.secondary}`}>
           Cadastrar
         </button>
 
         {mensagem && (
-          <div className={`mensagem ${tipoMensagem}`}>{mensagem}</div>
+          <div className={`${styles.mensagem} ${styles[tipoMensagem]}`}>
+            {mensagem}
+          </div>
         )}
       </div>
     </div>

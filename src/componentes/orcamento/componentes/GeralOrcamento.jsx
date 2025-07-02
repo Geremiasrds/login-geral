@@ -2,9 +2,10 @@ import { useState } from "react";
 import ItensSimulado from "./inputs/ItensSimulado";
 import ValorDoItem from "./inputs/ValorUnico";
 import CardDaLista from "./cards/CardLista";
-import Botao from "./botoes/BotoeDeSomarOrcamento";
+import BotaodeGeraOrcamento from "./botoes/BotaodeGeraOrcamento";
 import CardDoOrcamento from "./cards/CardOrcamento";
 import AjudaAoUsuario from "./AjudaAoUsuario/AjudaAoUsuario";
+import styles from "../componentes/Geral.module.css";
 
 function Geral() {
   const [itemDigitado, setItemDigitado] = useState("");
@@ -48,10 +49,8 @@ function Geral() {
     0
   );
 
-  const handleSomar = enviarTexto;
-
   return (
-    <div className="simula-orcamento">
+    <div className={styles.simulaOrcamento}>
       {mostrarAjuda ? (
         <AjudaAoUsuario />
       ) : mostrarOrcamento ? (
@@ -61,19 +60,12 @@ function Geral() {
         />
       ) : (
         <>
-          <div className="orcamento">
-            <h2>ORÇAMENTO</h2>
+          <div className={styles.orcamento}>
+            <h2 className={styles.titulo}>ORÇAMENTO</h2>
 
             <p
+              className={styles.ajuda}
               onClick={() => setMostrarAjuda(true)}
-              style={{
-                fontSize: "11px",
-                width: "100px",
-                color: "saddlebrown",
-                cursor: "pointer",
-                position: "relative",
-                left: "170px",
-              }}
             >
               Precisa de Ajuda?
             </p>
@@ -86,11 +78,11 @@ function Geral() {
             <ValorDoItem
               valorDoItem={valorDoItem}
               setValorDoItem={setValorDoItem}
-              onSomar={handleSomar}
+              onSomar={enviarTexto}
             />
           </div>
 
-          <Botao onClick={enviarTexto} />
+          <BotaodeGeraOrcamento onClick={enviarTexto} />
 
           <CardDaLista
             OqueFoiDigitadoNoInput={itensConfirmados}

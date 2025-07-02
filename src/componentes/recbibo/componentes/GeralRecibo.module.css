@@ -1,0 +1,37 @@
+.container {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #1c1c2b;
+  color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.botao {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  transition: transform 0.2s;
+}
+
+.botao:hover {
+  transform: scale(1.1);
+}
+
+.titulo {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00c8ff;
+}
+
+.mensagem {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #cccccc;
+}

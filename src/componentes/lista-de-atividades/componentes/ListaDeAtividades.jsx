@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "./ListaDeTarefas.module.css";
 
 const ListaDeTarefas = () => {
   const [input, setInput] = useState("");
@@ -81,259 +82,65 @@ const ListaDeTarefas = () => {
   };
 
   const formatarTempo = (segundos) => {
-    const m = Math.floor(segundos / 60)
-      .toString()
-      .padStart(2, "0");
+    const m = Math.floor(segundos / 60).toString().padStart(2, "0");
     const s = (segundos % 60).toString().padStart(2, "0");
     return `${m}:${s}`;
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "600px",
-        width: "90vw",
-        margin: "6vh auto",
-        padding: "6vw",
-        borderRadius: "16px",
-        background: "#fefefe",
-        boxShadow: "0 12px 24px rgba(0,0,0,0.08)",
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-      }}
-    >
-      <h1
-        style={{
-          textAlign: "center",
-          fontSize: "clamp(1.8rem, 5vw, 2.5rem)",
-          marginBottom: "8vw",
-          color: "#2c3e50",
-          fontWeight: "700",
-        }}
-      >
-        O que você vai fazer hoje?
-      </h1>
+    <div className={styles.container}>
+      <h1 className={styles.titulo}>O que você vai fazer hoje?</h1>
 
-      {/* Input + Botão Adicionar */}
-      <div
-        style={{
-          display: "flex",
-          gap: "10px",
-          flexWrap: "wrap",
-          marginBottom: "6vw",
-        }}
-      >
+      <div className={styles.inputContainer}>
         <input
           type="text"
           placeholder="Adicione sua tarefa..."
           value={input}
           onChange={pegarValorDoInput}
           onKeyDown={(e) => e.key === "Enter" && mostarAoClicar()}
-          style={{
-            flex: "1 1 60%",
-            padding: "14px",
-            fontSize: "1rem",
-            borderRadius: "12px",
-            border: "1.5px solid #ccc",
-            outline: "none",
-            transition: "border-color 0.3s ease",
-          }}
         />
-        <button
-          onClick={mostarAoClicar}
-          style={{
-            backgroundColor: "#3498db",
-            color: "white",
-            border: "none",
-            padding: "14px 24px",
-            borderRadius: "12px",
-            fontWeight: "600",
-            fontSize: "1rem",
-            cursor: "pointer",
-            flex: "1 1 35%",
-          }}
-        >
-          Adicionar
-        </button>
+        <button onClick={mostarAoClicar}>Adicionar</button>
       </div>
 
-      {/* Lista de Tarefas */}
-      <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+      <ul className={styles.lista}>
         {mostrarLista.map((tarefa) => {
           const progresso =
             ((tarefa.tempoTotal - tarefa.tempoRestante) / tarefa.tempoTotal) *
             100;
 
-          let cor = "#27ae60"; // verde
-          if (tarefa.tempoRestante <= tarefa.tempoTotal * 0.3) cor = "#e74c3c"; // vermelho
-          else if (tarefa.tempoRestante <= tarefa.tempoTotal * 0.6) cor = "#f39c12"; // amarelo
-
           return (
-            <li
-              key={tarefa.id}
-              style={{
-                background: "#fff",
-                padding: "18px",
-                marginBottom: "20px",
-                borderRadius: "14px",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-              }}
-            >
-              <div
+            <li key={tarefa.id} className={styles.item}>
+              <span
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  gap: "10px",
-                  flexWrap: "wrap",
-                  marginBottom: "12px",
+                  textDecoration: tarefa.concluida ? "line-through" : "none",
                 }}
               >
-                <span
-                  style={{
-                    fontWeight: "600",
-                    fontSize: "1.1rem",
-                    color: tarefa.concluida ? "#aaa" : "#2c3e50",
-                    textDecoration: tarefa.concluida ? "line-through" : "none",
-                    flex: "1 1 60%",
-                  }}
-                >
-                  {tarefa.texto}
-                </span>
+                {tarefa.texto}
+              </span>
 
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "8px",
-                    flex: "1 1 35%",
-                    justifyContent: "flex-end",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  <button
-                    onClick={() => marcarComoConcluida(tarefa.id)}
-                    style={{
-                      backgroundColor: tarefa.concluida ? "#3498db" : "transparent",
-                      border: "2px solid #3498db",
-                      color: tarefa.concluida ? "#fff" : "#3498db",
-                      padding: "6px 12px",
-                      borderRadius: "8px",
-                      fontWeight: "600",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {tarefa.concluida ? "Desfazer" : "Concluir"}
-                  </button>
-
-                  <button
-                    onClick={() => removerTarefas(tarefa.id)}
-                    style={{
-                      backgroundColor: "#e74c3c",
-                      border: "none",
-                      color: "#fff",
-                      padding: "6px 12px",
-                      borderRadius: "8px",
-                      fontWeight: "600",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Remover
-                  </button>
-                </div>
+              <div className={styles.botoes}>
+                <button onClick={() => marcarComoConcluida(tarefa.id)}>
+                  {tarefa.concluida ? "Desfazer" : "Concluir"}
+                </button>
+                <button onClick={() => removerTarefas(tarefa.id)}>Remover</button>
               </div>
 
-              {/* Barra de Progresso */}
-              <div
-                style={{
-                  height: "10px",
-                  background: "#ecf0f1",
-                  borderRadius: "8px",
-                  overflow: "hidden",
-                  marginBottom: "12px",
-                }}
-              >
+              <div className={styles.progressBar}>
                 <div
-                  style={{
-                    width: `${progresso}%`,
-                    height: "100%",
-                    backgroundColor: cor,
-                    transition: "width 1s linear",
-                  }}
+                  className={styles.progress}
+                  style={{ width: `${progresso}%` }}
                 ></div>
               </div>
 
-              {/* Timer e Botões */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  flexWrap: "wrap",
-                  gap: "12px",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "monospace",
-                    fontSize: "1rem",
-                    color: "#666",
-                  }}
-                >
-                  {formatarTempo(tarefa.tempoRestante)}
-                </span>
-
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "10px",
-                    flexWrap: "wrap",
-                  }}
-                >
+              <div className={styles.tempoEControles}>
+                <span>{formatarTempo(tarefa.tempoRestante)}</span>
+                <div>
                   {!tarefa.rodando ? (
-                    <button
-                      onClick={() => iniciarTimer(tarefa.id)}
-                      style={{
-                        backgroundColor: "#2ecc71",
-                        color: "#fff",
-                        padding: "8px 16px",
-                        border: "none",
-                        borderRadius: "8px",
-                        fontWeight: "600",
-                        cursor: "pointer",
-                      }}
-                    >
-                      Iniciar
-                    </button>
+                    <button onClick={() => iniciarTimer(tarefa.id)}>Iniciar</button>
                   ) : (
-                    <button
-                      onClick={() => pausarTimer(tarefa.id)}
-                      style={{
-                        backgroundColor: "#f39c12",
-                        color: "#fff",
-                        padding: "8px 16px",
-                        border: "none",
-                        borderRadius: "8px",
-                        fontWeight: "600",
-                        cursor: "pointer",
-                      }}
-                    >
-                      Pausar
-                    </button>
+                    <button onClick={() => pausarTimer(tarefa.id)}>Pausar</button>
                   )}
-
-                  <button
-                    onClick={() => resetarTimer(tarefa.id)}
-                    style={{
-                      backgroundColor: "#3498db",
-                      color: "#fff",
-                      padding: "8px 16px",
-                      border: "none",
-                      borderRadius: "8px",
-                      fontWeight: "600",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Resetar
-                  </button>
+                  <button onClick={() => resetarTimer(tarefa.id)}>Resetar</button>
                 </div>
               </div>
             </li>
@@ -343,4 +150,5 @@ const ListaDeTarefas = () => {
     </div>
   );
 };
-export default ListaDeTarefas
+
+export default ListaDeTarefas;

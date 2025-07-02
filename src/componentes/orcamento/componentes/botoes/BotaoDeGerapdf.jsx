@@ -1,11 +1,9 @@
 import React from "react";
+import styles from "../Geral.module.css";
 
-const BotaoDeGeraPDF = ({ onClick }) => {
+const BotaoDeGeraPDF = ({ onClick, className }) => {
   return (
-    <button onClick={onClick} style={{
-      backgroundColor: "#28a745",
-      color: "#fff",
-    }}>
+    <button onClick={onClick} className={`${styles.botaoGerarPDF} ${className || ""}`}>
       📄 Gerar PDF
     </button>
   );

@@ -1,31 +1,21 @@
-import React, { useRef } from "react";
+import React from "react";
+import styles from "../Geral.module.css";
 
-const InputsEditaveis = ({ quantidade, nome, valorUnitario, onChange }) => {
-  const inputRef = useRef(null);
-
-  const handleFocus = () => {
-    inputRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-  };
-
+const InputsEditaveis = ({ quantidade, nome, valorUnitario, onChange, className }) => {
   return (
-    <div style={{ display: "flex", padding: 0 }} ref={inputRef}>
+    <div className={`${styles.inputsEditaveis} ${className || ""}`}>
       <input
         type="number"
         min="1"
         value={quantidade}
         onChange={(e) => onChange("quantidade", e.target.value)}
         placeholder="Qtd"
-        style={{ width: 60, height: '10px', borderBottom:'1px solid black' }}
-        onFocus={handleFocus}
       />
       <input
         type="text"
         value={nome}
         onChange={(e) => onChange("nome", e.target.value)}
         placeholder="Serviço"
-        style={{ width: '120px', height: '10px' }}
-        onFocus={handleFocus}
-
       />
       <input
         type="number"
@@ -34,8 +24,6 @@ const InputsEditaveis = ({ quantidade, nome, valorUnitario, onChange }) => {
         value={valorUnitario}
         onChange={(e) => onChange("valorUnitario", e.target.value)}
         placeholder="Valor"
-        style={{ width: 80, height: '10px' }}
-        onFocus={handleFocus}
       />
     </div>
   );
