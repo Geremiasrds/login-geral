@@ -4,7 +4,6 @@ import ValorDoItem from "./inputs/ValorUnico";
 import CardDaLista from "./cards/CardLista";
 import Botao from "./botoes/BotoeDeSomarOrcamento";
 import CardDoOrcamento from "./cards/CardOrcamento";
-import BotaoDeVolta from "./botoes/BotoesDeRetorno";
 import AjudaAoUsuario from "./AjudaAoUsuario/AjudaAoUsuario";
 
 function Geral() {
@@ -12,7 +11,7 @@ function Geral() {
   const [valorDoItem, setValorDoItem] = useState("");
   const [itensConfirmados, setItensConfirmados] = useState([]);
   const [mostrarOrcamento, setMostrarOrcamento] = useState(false);
-  const [mostrarAjuda, setMostrarAjuda] = useState(false); // 👈 novo estado
+  const [mostrarAjuda, setMostrarAjuda] = useState(false);
 
   const handleGerarOrcamento = () => setMostrarOrcamento(true);
 
@@ -53,9 +52,6 @@ function Geral() {
 
   return (
     <div className="simula-orcamento">
-      <BotaoDeVolta />
-
-      
       {mostrarAjuda ? (
         <AjudaAoUsuario />
       ) : mostrarOrcamento ? (
@@ -68,7 +64,6 @@ function Geral() {
           <div className="orcamento">
             <h2>ORÇAMENTO</h2>
 
-           
             <p
               onClick={() => setMostrarAjuda(true)}
               style={{

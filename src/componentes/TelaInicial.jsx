@@ -1,21 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const TelaInicial = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="container">
-        <h1>O que você quer fazer?</h1>
+      <h1>O que você quer fazer?</h1>
+      <button onClick={() => navigate("/orcamento")}>Orçamentos</button>
 
-        <Link to="/orcamento" style={{ textDecoration: "none" }}>
-          <button>Orçamentos</button>
-        </Link>
-        <Link to="/recibo" style={{ textDecoration: "none" }}>
-        <button>Recibo</button>
-        </Link>
-        <Link to="/Tarefas" style={{ textDecoration: "none" }}>
-        <button>Lista de tarefas</button>
-        </Link>
-       
+      <button onClick={() => navigate("/tarefas")}>Tarefas diarias</button>
+      <button onClick={() => navigate("/recibo")}>Fazer recibo</button>
     </div>
   );
 };
