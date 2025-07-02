@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BotaodeGeraOrcamento from "../botoes/BotaodeGeraOrcamento";
 import styles from "../Geral.module.css";
 import InputsEditaveis from "../inputs/inputsEditaves";
 
 const CardDaLista = ({ OqueFoiDigitadoNoInput, setItensConfirmados, total, onGerarOrcamento }) => {
+
+  // Carregar do localStorage ao montar o componente
+  useEffect(() => {
+    const itensSalvos = localStorage.getItem("itensConfirmados");
+    if (itensSalvos) {
+      setItensConfirmados(JSON.parse(itensSalvos));
+    }
+  }, [setItensConfirmados]);
+
+  // Atualiza localStorage toda vez que OqueFoiDigitadoNoInput mudar
+  useEffect(() => {
+    localStorage.setItem("itensConfirmados", JSON.stringify(OqueFoiDigitadoNoInput));
+  }, [OqueFoiDigitadoNoInput]);
+
   const atualizarItem = (index, campo, valor) => {
     const novosItens = [...OqueFoiDigitadoNoInput];
 

@@ -3,7 +3,7 @@ import styles from "../Geral.module.css";
 const BotaodeGeraOrcamento = ({ onClick }) => {
   return (
     <button className={styles.botao} onClick={onClick}>
-      Gerar Orçamento
+      Gerar
     </button>
   );
 };

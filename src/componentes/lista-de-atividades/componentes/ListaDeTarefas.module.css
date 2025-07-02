@@ -1,43 +1,58 @@
 .container {
-  max-width: 500px;
+  max-width: 600px;
   margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #1e1e2f;
-  border-radius: 10px;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  background: linear-gradient(145deg, #111827, #1f2937);
+  border-radius: 16px;
+  color: #e5e7eb;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
 
 .titulo {
   text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-  color: #00d4ff;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #38bdf8;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
 }
 
 .inputContainer {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 1.5rem;
 }
 
 .inputContainer input {
   flex: 1;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #374151;
   font-size: 1rem;
+  background-color: #111827;
+  color: #e5e7eb;
+}
+
+.inputContainer input:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
 }
 
 .inputContainer button {
-  padding: 10px 15px;
-  background-color: #00d4ff;
+  padding: 12px 16px;
+  background-color: #38bdf8;
   color: #000;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.inputContainer button:hover {
+  background-color: #0ea5e9;
 }
 
 .lista {
@@ -46,53 +61,61 @@
 }
 
 .item {
-  background: #2a2a40;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
+  background: #1f2937;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid #374151;
+  transition: transform 0.2s ease;
+}
+
+.item:hover {
+  transform: scale(1.015);
 }
 
 .item span {
   display: block;
   font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .botoes {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 10px;
 }
 
 .botoes button {
-  padding: 6px 10px;
+  padding: 8px 12px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .botoes button:first-child {
-  background-color: #32cd32;
-  color: white;
+  background-color: #10b981;
+  color: #fff;
 }
 
 .botoes button:nth-child(2) {
-  background-color: #ff4d4d;
-  color: white;
+  background-color: #ef4444;
+  color: #fff;
 }
 
 .progressBar {
   width: 100%;
-  background-color: #444;
+  background-color: #374151;
   height: 10px;
-  border-radius: 5px;
+  border-radius: 6px;
   overflow: hidden;
   margin-bottom: 10px;
 }
 
 .progress {
   height: 100%;
-  background-color: #00d4ff;
+  background-color: #38bdf8;
+  transition: width 0.5s ease;
 }
 
 .tempoEControles {
@@ -103,11 +126,16 @@
 
 .tempoEControles button {
   margin-left: 8px;
-  padding: 6px 8px;
-  font-size: 0.9rem;
+  padding: 6px 10px;
+  font-size: 0.85rem;
   border: none;
   border-radius: 4px;
-  background-color: #999;
-  color: #000;
+  background-color: #6b7280;
+  color: #fff;
   cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.tempoEControles button:hover {
+  background-color: #4b5563;
 }
