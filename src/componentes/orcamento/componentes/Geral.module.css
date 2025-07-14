@@ -181,13 +181,7 @@
 
 /* Card do orçamento */
 .cardOrcamento {
-  background-color: #1f1f2e;
   border-radius: 18px;
-  padding: 2.3rem 2.8rem;
-  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.45);
-  border: 1px solid #5b4dd1;
-  font-family: 'Inter', sans-serif;
-  margin-top: 2.2rem;
   color: #cbd5e1;
 }
 
@@ -201,7 +195,6 @@
 
 .tabelaDoOrcamento th, .tabelaDoOrcamento td {
   border: 1px solid #55597b;
-  padding: 0.85rem 0.7rem;
   text-align: center;
   font-size: 0.95rem;
   color: #cbd5e1;
@@ -255,11 +248,6 @@
 /* Responsividade básica */
 @media (max-width: 600px) {
   .simulaOrcamento {
-    margin: 1.5rem 1rem;
-    padding: 1.5rem 1.25rem;
-  }
-  .orcamento {
-    padding: 1rem 1.25rem;
   }
   .botaoPrincipal, .botao {
     width: 100%;
@@ -279,7 +267,6 @@
   }
   /* Tabela orçamento */
   .tabelaWrapper {
-    width: 100%;
     overflow-x: auto;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
@@ -290,7 +277,6 @@
     border-collapse: collapse;
     margin-top: 1.1rem;
     margin-bottom: 2.3rem;
-    min-width: 600px;
     border-radius: 12px;
     overflow: hidden;
     background-color: #2a2a3f;
@@ -302,13 +288,10 @@
     color: #fff;
     font-weight: 700;
     letter-spacing: 0.05em;
-    padding: 1rem 0rem;
-    font-size: 1rem;
     text-align: center;
   }
 
   .tabelaDoOrcamento td {
-    padding: 0.9rem 0.8rem;
     text-align: center;
     font-size: 0.95rem;
     color: #cbd5e1;
@@ -326,6 +309,5 @@
   }
   .tabelaDoOrcamento {
     font-size: 0.85rem;
-    min-width: 100%;
   }
 }
