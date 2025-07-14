@@ -2,10 +2,10 @@ import { useState } from "react";
 import ItensSimulado from "./inputs/ItensSimulado";
 import ValorDoItem from "./inputs/ValorUnico";
 import CardDaLista from "./cards/CardLista";
-import BotaodeGeraOrcamento from "./botoes/BotaodeGeraOrcamento";
 import CardDoOrcamento from "./cards/CardOrcamento";
 import AjudaAoUsuario from "./AjudaAoUsuario/AjudaAoUsuario";
 import styles from "../componentes/Geral.module.css";
+import Botoes from "./botoes/Botoes";
 
 function Geral() {
   const [itemDigitado, setItemDigitado] = useState("");
@@ -74,6 +74,7 @@ function Geral() {
               itemDigitado={itemDigitado}
               setItemDigitado={setItemDigitado}
             />
+            
 
             <ValorDoItem
               valorDoItem={valorDoItem}
@@ -82,7 +83,7 @@ function Geral() {
             />
           </div>
 
-          <BotaodeGeraOrcamento onClick={enviarTexto} />
+          <Botoes tipo="adicionar" onClick={enviarTexto} />
 
           <CardDaLista
             OqueFoiDigitadoNoInput={itensConfirmados}

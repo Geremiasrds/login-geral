@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
-import BotaodeGeraOrcamento from "../botoes/BotaodeGeraOrcamento";
+import React, { useEffect, useState } from "react";
 import styles from "../Geral.module.css";
 import InputsEditaveis from "../inputs/inputsEditaves";
+import Botoes from "../botoes/Botoes";
 
-const CardDaLista = ({ OqueFoiDigitadoNoInput, setItensConfirmados, total, onGerarOrcamento }) => {
+const CardDaLista = ({
+  OqueFoiDigitadoNoInput,
+  setItensConfirmados,
+  total,
+  onGerarOrcamento,
+}) => {
+  const [mostrarExtras, setMostrarExtras] = useState(false);
 
-  // Carregar do localStorage ao montar o componente
   useEffect(() => {
     const itensSalvos = localStorage.getItem("itensConfirmados");
     if (itensSalvos) {
@@ -13,9 +18,13 @@ const CardDaLista = ({ OqueFoiDigitadoNoInput, setItensConfirmados, total, onGer
     }
   }, [setItensConfirmados]);
 
-  // Atualiza localStorage toda vez que OqueFoiDigitadoNoInput mudar
   useEffect(() => {
     localStorage.setItem("itensConfirmados", JSON.stringify(OqueFoiDigitadoNoInput));
+
+    // Se houver itens, mostra os botões extras
+    if (OqueFoiDigitadoNoInput.length > 0) {
+      setMostrarExtras(true);
+    }
   }, [OqueFoiDigitadoNoInput]);
 
   const atualizarItem = (index, campo, valor) => {
@@ -32,6 +41,12 @@ const CardDaLista = ({ OqueFoiDigitadoNoInput, setItensConfirmados, total, onGer
     setItensConfirmados(novosItens);
   };
 
+  const removerUltimo = () => {
+    const novos = [...OqueFoiDigitadoNoInput];
+    novos.pop();
+    setItensConfirmados(novos);
+  };
+
   return (
     <div className={styles.cardLista}>
       {OqueFoiDigitadoNoInput.length > 0 && (
@@ -45,7 +60,6 @@ const CardDaLista = ({ OqueFoiDigitadoNoInput, setItensConfirmados, total, onGer
                 nome={item.nome}
                 valorUnitario={item.valorUnitario}
                 onChange={(campo, valor) => atualizarItem(index, campo, valor)}
-                className={styles.inputsEditaveis}
               />
               <span>
                 R${(item.quantidade * item.valorUnitario).toFixed(2).replace(".", ",")}
@@ -58,7 +72,12 @@ const CardDaLista = ({ OqueFoiDigitadoNoInput, setItensConfirmados, total, onGer
           </div>
 
           <div className={styles.botaoGerar}>
-            <BotaodeGeraOrcamento onClick={onGerarOrcamento} className={styles.botaoPrincipal} />
+            <Botoes
+              tipo="extras"
+              remover={removerUltimo}
+              gerarOrcamento={onGerarOrcamento}
+              mostrarExtras={mostrarExtras}
+            />
           </div>
         </>
       )}

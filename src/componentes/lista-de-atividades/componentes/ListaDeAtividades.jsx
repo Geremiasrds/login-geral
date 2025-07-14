@@ -147,6 +147,30 @@ const ListaDeTarefas = () => {
           );
         })}
       </ul>
+      <div style={{height: '400px'}}>
+
+      <h1>Atividades</h1>
+      <button>Academia</button><br />
+      <button>Academia</button>
+      <button>Academia</button>
+      <button>Academia</button><br />
+      <button>Academia</button>
+      <button>Academia</button>
+      <button>Academia</button>
+      <button>Academia</button>
+      <button>Academia</button><br />
+      <button>Academia</button>
+      <button>Academia</button>
+      <button>Academia</button><br />
+      <button>Academia</button>
+      <button>Academia</button>
+      <button>Academia</button><br />
+      <button>Academia</button>
+      <button>Academia</button>
+      <button>Academia</button>
+      <button>Academia</button>
+      </div>
+
     </div>
   );
 };
